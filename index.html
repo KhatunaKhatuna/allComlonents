@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+      *,
+      *:before,
+      *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      :focus,
+      :active {
+        outline: none;
+      }
+      a:focus,
+      a:active {
+        outline: none;
+      }
+      nav,
+      footer,
+      header,
+      aside {
+        display: block;
+      }
+      html,
+      body {
+        width: 100%;
+        font-size: 100%;
+        line-height: 1;
+        font-size: 14px;
+        -ms-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      input,
+      button,
+      textarea {
+        font-family: inherit;
+      }
+      input::-ms-clear {
+        display: none;
+      }
+      button {
+        cursor: pointer;
+      }
+      button::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+      }
+      a,
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      ul li {
+        list-style: none;
+      }
+      img {
+        vertical-align: top;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: 400;
+      }
+      /* ------end resset ------*/
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* ---Hero--- */
+      header {
+        height: 100vh;
+        position: relative;
+        background-image: linear-gradient(
+            rgba(34, 34, 34, 0.6),
+            rgba(34, 34, 34, 0.6)
+          ),
+          url(hero.jpg);
+        background-size: cover;
+        color: #fff;
+      }
+
+      .hero-container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      nav {
+        font-size: 20px;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 0;
+      }
+      .header-text h1 {
+        font-size: 52px;
+        margin-bottom: 32px;
+      }
+      .header-text p {
+        font-size: 20px;
+        margin-bottom: 48px;
+      }
+      .header-text .btn:link,
+      .header-text .btn:visited {
+        font-size: 20px;
+        font-weight: 600;
+        background-color: #e67e22;
+        color: #fff;
+        display: inline-block;
+        padding: 16px 32px;
+        border-radius: 9px;
+      }
+      .header-text-wrapper {
+        width: 1200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .header-text {
+        width: 50%;
+      }
+      /* ---accordion--- */
+      .accordion-container {
+        color: #343a40;
+        line-height: 1;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .accordion {
+        width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .item {
+        padding: 20px;
+        box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        column-gap: 24px;
+        row-gap: 30px;
+        align-items: center;
+      }
+      .item .title,
+      .item .number {
+        font-size: 40px;
+        font-weight: 700;
+        color: #868e96;
+      }
+
+      .item .icon {
+        color: green;
+      }
+      .arrow-up {
+        width: 40px;
+        display: none;
+      }
+      .arrow {
+        width: 40px;
+      }
+
+      .hidden-box {
+        font-size: 18px;
+        font-weight: normal;
+        grid-column: 2;
+        display: none;
+      }
+
+      .hidden-box p {
+        margin-bottom: 20px;
+      }
+      .hidden-box ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hidden-box li {
+        list-style: circle;
+        list-style-position: inside;
+      }
+
+      .open {
+        border-top: 7px solid green;
+      }
+      .open .title,
+      .open .number {
+        color: green;
+      }
+      .open .hidden-box {
+        display: block;
+      }
+
+      .open hr {
+        background-color: rgba(5, 136, 5, 0.493);
+        height: 5px;
+        margin-bottom: 10px;
+      }
+      .open .arrow {
+        display: none;
+      }
+      .open .arrow-up {
+        display: block;
+      }
+
+      /* App */
+      .app-container {
+        font-family: sans-serif;
+        color: #343a40;
+        font-size: 24px;
+        height: 100vh;
+        text-align: center;
+        font-weight: bold;
+        display: grid;
+        grid-template-columns: 80px 400px 1fr 250px;
+        grid-template-rows: 80px 1fr;
+      }
+      .app-nav {
+        grid-row: 1/-1;
+        background-color: #343a40;
+        color: white;
+        padding-top: 24px;
+      }
+      .app-menu {
+        grid-column: 2/-1;
+        background-color: #7048e8;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 40px;
+      }
+      button {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #5f3dc4;
+        cursor: pointer;
+        color: #fff;
+        padding: 8px 12px;
+      }
+      button:last-child {
+        background-color: #d6336c;
+        margin-left: auto;
+      }
+      .app-section {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding-top: 24px;
+        background-color: #e9ecef;
+        padding: 40px;
+        overflow: scroll;
+      }
+      .email {
+        background-color: #adb5bd;
+        padding: 40px 20px;
+        /* height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0; */
+      }
+      main {
+        padding-top: 24px;
+      }
+      aside {
+        padding-top: 24px;
+        background-color: #e9ecef;
+      }
+      /* Table */
+      .table-container {
+        font-family: "Inter", sans-serif;
+        color: #343a40;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      table {
+        width: 900px;
+        border-collapse: collapse;
+        font-size: 22px;
+      }
+
+      th,
+      td {
+        padding: 20px;
+        text-align: left;
+      }
+      thead tr {
+        background-color: #087f5b;
+        color: #fff;
+      }
+
+      thead th {
+        width: 25%;
+      }
+      tbody tr:nth-child(odd) {
+        background-color: #f8f9fa;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #dee2e6;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="hero-container">
+        <div>LOGO</div>
+        <div>NAVIGATION</div>
+      </nav>
+      <div class="header-text-wrapper">
+        <div class="header-text">
+          <h1>A healty meal delivered to your door, every single day</h1>
+          <p>
+            The smart 365-days-per-year food subscription that will make you eat
+            healty algain. Tailored to your personal tastes and nutritional
+            needs
+          </p>
+          <a href="#" class="btn">Start eating well</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="accordion-container">
+      <div class="accordion">
+        <div class="item">
+          <p class="number">01</p>
+          <p class="title">Lorem ipsum dolor sit amet.</p>
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="arrow"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="arrow-up"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+              />
+            </svg>
+          </div>
+
+          <div class="hidden-box">
+            <hr />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+              libero distinctio nulla officia rerum, cum unde est vitae. Quod,
+              ratione. libero distinctio nulla officia rerum, cum unde est
+              vitae. Quod, ratione. libero distinctio nulla officia rerum, cum
+              unde est vitae. Quod, ratione. libero distinctio nulla officia
+              rerum, cum unde est vitae. Quod, ratione.
+            </p>
+            <ul>
+              <li>Lorem, ipsum dolor sit amet consectetur adipisicing.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dm</li>
+              <li>Lorem ipsum dolor sit amet consectetur.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item">
+          <p class="number">02</p>
+          <p class="title">Lorem ipsum dolor sit amet.</p>
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="arrow"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="arrow-up"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+              />
+            </svg>
+          </div>
+          <div class="hidden-box">
+            <hr />
+            <p class="text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+              libero distinctio nulla officia rerum, cum unde est vitae. Quod,
+              ratione. libero distinctio nulla officia rerum, cum unde est
+              vitae. Quod, ratione. libero distinctio nulla officia rerum, cum
+              unde est vitae. Quod, ratione. libero distinctio nulla officia
+              rerum, cum unde est vitae. Quod, ratione.
+            </p>
+            <ul class="list">
+              <li>Lorem, ipsum dolor sit amet consectetur adipisicing.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dm</li>
+              <li>Lorem ipsum dolor sit amet consectetur.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item">
+          <p class="number">03</p>
+          <p class="title">Lorem ipsum dolor sit amet.</p>
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="arrow"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="arrow-up"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+              />
+            </svg>
+          </div>
+          <div class="hidden-box">
+            <hr />
+            <p class="text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+              libero distinctio nulla officia rerum, cum unde est vitae. Quod,
+              ratione. libero distinctio nulla officia rerum, cum unde est
+              vitae. Quod, ratione. libero distinctio nulla officia rerum, cum
+              unde est vitae. Quod, ratione. libero distinctio nulla officia
+              rerum, cum unde est vitae. Quod, ratione.
+            </p>
+            <ul class="list">
+              <li>Lorem, ipsum dolor sit amet consectetur adipisicing.</li>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dm</li>
+              <li>Lorem ipsum dolor sit amet consectetur.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-container">
+      <nav class="app-nav">Nav</nav>
+      <menu class="app-menu">
+        <button>New</button>
+        <button>Reply</button>
+        <button>Forward</button>
+        <button>Mark unread</button>
+        <button>Trash</button>
+      </menu>
+      <section class="app-section">
+        <div class="email">Email 1</div>
+        <div class="email">Email 2</div>
+        <div class="email">Email 3</div>
+        <div class="email">Email 4</div>
+        <div class="email">Email 5</div>
+        <div class="email">Email 6</div>
+        <div class="email">Email 7</div>
+        <div class="email">Email 8</div>
+        <div class="email">Email 9</div>
+        <div class="email">Email 10</div>
+      </section>
+      <main>Email view</main>
+      <aside>Additional info</aside>
+    </section>
+    <section class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Chair</th>
+            <th>The Laid Back</th>
+            <th>The Worker Bee</th>
+            <th>The Chair 4/2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Width</th>
+            <td>80 cm</td>
+            <td>60 cm</td>
+            <td>220 cm</td>
+          </tr>
+          <tr>
+            <th>Height</th>
+            <td>100 cm</td>
+            <td>110 cm</td>
+            <td>220 cm</td>
+          </tr>
+          <tr>
+            <th>Depth</th>
+            <td>70 cm</td>
+            <td>65 cm</td>
+            <td>220 cm</td>
+          </tr>
+          <tr>
+            <th>Weight</th>
+            <td>16 cm</td>
+            <td>22 cm</td>
+            <td>80 cm</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <script>
+      const acordionItems = document.querySelectorAll(".item");
+      const acordionButtons = document.querySelectorAll(".icon");
+
+      /* 1.click acordion Item*/
+      acordionItems.forEach((acordionItem) => {
+        acordionItem.addEventListener("click", () => {
+          acordionItems.forEach((item) => {
+            if (item !== acordionItem) {
+              item.classList.remove("open");
+            }
+          });
+          acordionItem.classList.toggle("open");
+        });
+      });
+    </script>
+  </body>
+</html>
