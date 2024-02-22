@@ -121,10 +121,6 @@
         font-size: 20px;
         margin: 40px 0;
         font-weight: bold;
-
-        /* display: flex;
-        flex-direction: column;
-        align-items: center; */
       }
 
       .buttons {
@@ -150,21 +146,6 @@
         font-size: 16px;
         line-height: 1;
       }
-
-      /*    .close {
-
-        border: none;
-        background: none;
-        cursor: pointer;
-        font-size: 60px;
-        color: inherit;
-        margin: 0 50% 30px 50%;
-        transform: translate(-50%, 0);
-      }
-
-      .close:hover {
-        color: #7950f2;
-      } */
     </style>
   </head>
   <body>
@@ -195,7 +176,6 @@
         "Invest your new income 🤑",
       ];
 
-      //2. Is active all visited steps, move with buttons
       // function updates the UI
       function uiUpdate() {
         message.textContent = messages[currentStep - 1];
@@ -203,9 +183,10 @@
           step.classList[`${index < currentStep ? "add" : "remove"}`]("active");
         });
       }
+      uiUpdate();
 
-      // function updates the current steps
-      const updateStepsByButton = (e) => {
+      // function updates the current steps by buttons
+      const updateSteps = (e) => {
         console.log(e.currentTarget.id);
         currentStep =
           e.currentTarget.id === "next"
@@ -214,34 +195,65 @@
         uiUpdate();
       };
 
-      uiUpdate();
-
       buttons.forEach((button) => {
-        button.addEventListener("click", updateStepsByButton);
+        button.addEventListener("click", updateSteps);
       });
+
+      steps.forEach((step, index) => {
+        step.addEventListener("click", () => {
+          currentStep = index + 1;
+          uiUpdate();
+        });
+      });
+      /*
+            //2. Is active all visited steps, move with buttons
+            // function updates the UI
+            function uiUpdate() {
+              message.textContent = messages[currentStep - 1];
+              steps.forEach((step, index) => {
+                step.classList[`${index < currentStep ? "add" : "remove"}`]("active");
+              });
+            }
+
+            // function updates the current steps
+            const updateStepsByButton = (e) => {
+              console.log(e.currentTarget.id);
+              currentStep =
+                e.currentTarget.id === "next"
+                  ? Math.min(currentStep + 1, messages.length)
+                  : Math.max(currentStep - 1, 1);
+              uiUpdate();
+            };
+
+            uiUpdate();
+
+            buttons.forEach((button) => {
+              button.addEventListener("click", updateStepsByButton);
+            });
+      */
 
       /*
-      //1.  Is active only current step, move with buttons
-      function uiUpdate() {
-        message.textContent = messages[currentStep - 1];
-        document.querySelector(".active")?.classList.remove("active");
-        steps[currentStep - 1].classList.add("active");
-      }
+            //1.  Is active only current step, move with buttons
+            function uiUpdate() {
+              message.textContent = messages[currentStep - 1];
+              document.querySelector(".active")?.classList.remove("active");
+              steps[currentStep - 1].classList.add("active");
+            }
 
-      uiUpdate();
+            uiUpdate();
 
-      next.addEventListener("click", () => {
-        if (currentStep < messages.length) {
-          currentStep += 1;
-          uiUpdate();
-        }
-      });
-      previous.addEventListener("click", () => {
-        if (currentStep > 1) {
-          currentStep -= 1;
-          uiUpdate();
-        }
-      });*/
+            next.addEventListener("click", () => {
+              if (currentStep < messages.length) {
+                currentStep += 1;
+                uiUpdate();
+              }
+            });
+            previous.addEventListener("click", () => {
+              if (currentStep > 1) {
+                currentStep -= 1;
+                uiUpdate();
+              }
+            });*/
     </script>
   </body>
 </html>

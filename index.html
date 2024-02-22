@@ -678,8 +678,6 @@
         "Apply for jobs 💼",
         "Invest your new income 🤑",
       ];
-
-      //2. Is active all visited steps, move with buttons
       // function updates the UI
       function uiUpdate() {
         message.textContent = messages[currentStep - 1];
@@ -689,7 +687,7 @@
       }
 
       // function updates the current steps
-      const updateStepsByButton = (e) => {
+      const updateSteps = (e) => {
         console.log(e.currentTarget.id);
         currentStep =
           e.currentTarget.id === "steps-next"
@@ -701,9 +699,41 @@
       uiUpdate();
 
       buttons.forEach((button) => {
-        button.addEventListener("click", updateStepsByButton);
+        button.addEventListener("click", updateSteps);
       });
+      // move by steps
+      steps.forEach((step, index) => {
+        step.addEventListener("click", () => {
+          currentStep = index + 1;
+          uiUpdate();
+        });
+      });
+      /*
+      //2. Is active all visited steps, move with buttons
+      // function updates the UI
+      function uiUpdate() {
+        message.textContent = messages[currentStep - 1];
+        steps.forEach((step, index) => {
+          step.classList[`${index < currentStep ? "add" : "remove"}`]("active");
+        });
+      }
 
+      // function updates the current steps
+      const updateSteps = (e) => {
+        console.log(e.currentTarget.id);
+        currentStep =
+          e.currentTarget.id === "steps-next"
+            ? Math.min(currentStep + 1, messages.length)
+            : Math.max(currentStep - 1, 1);
+        uiUpdate();
+      };
+
+      uiUpdate();
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", updateSteps);
+      });
+*/
       /*
       //1.  Is active only current step, move with buttons
       function uiUpdate() {
