@@ -322,6 +322,77 @@
       tbody tr:nth-child(even) {
         background-color: #dee2e6;
       }
+      /* Steps */
+      .steps-container {
+        font-family: "IBM Plex Mono", sans-serif;
+        background-color: #f7f7f7;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .steps {
+        width: 600px;
+        border-radius: 7px;
+        padding: 35px 100px;
+        background-color: #b1aaaa;
+      }
+
+      .steps-numbers {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .steps-numbers > div {
+        height: 40px;
+        aspect-ratio: 1;
+        background-color: #e7e7e7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      .steps-numbers .active {
+        background-color: #7950f2;
+        color: #fff;
+      }
+
+      .steps-message {
+        text-align: center;
+        font-size: 20px;
+        margin: 40px 0;
+        font-weight: bold;
+
+        /* display: flex;
+        flex-direction: column;
+        align-items: center; */
+      }
+
+      .steps-buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .steps-buttons button {
+        background-color: #7950f2;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .steps-buttons button span {
+        font-size: 16px;
+        line-height: 1;
+      }
     </style>
   </head>
   <body>
@@ -563,7 +634,24 @@
         </tbody>
       </table>
     </section>
+    <section class="steps-container">
+      <div class="steps">
+        <div class="steps-numbers">
+          <div class="step">1</div>
+          <div class="step">2</div>
+          <div class="step">3</div>
+        </div>
+        <p class="steps-message"></p>
+        <div class="steps-buttons">
+          <button id="steps-previous" class="steps-previous">
+            <span>Previous</span>
+          </button>
+          <button id="steps-next" class="steps-next"><span>Next</span></button>
+        </div>
+      </div>
+    </section>
     <script>
+      // acordion
       const acordionItems = document.querySelectorAll(".item");
       const acordionButtons = document.querySelectorAll(".icon");
 
@@ -578,6 +666,66 @@
           acordionItem.classList.toggle("open");
         });
       });
+      // Steps
+      let currentStep = 1;
+      const message = document.querySelector(".steps-message");
+      const previous = document.querySelector(".steps-previous");
+      const next = document.querySelector(".steps-next");
+      const steps = document.querySelectorAll(".step");
+      const buttons = document.querySelectorAll("button");
+      const messages = [
+        "Learn React ⚛️",
+        "Apply for jobs 💼",
+        "Invest your new income 🤑",
+      ];
+
+      //2. Is active all visited steps, move with buttons
+      // function updates the UI
+      function uiUpdate() {
+        message.textContent = messages[currentStep - 1];
+        steps.forEach((step, index) => {
+          step.classList[`${index < currentStep ? "add" : "remove"}`]("active");
+        });
+      }
+
+      // function updates the current steps
+      const updateStepsByButton = (e) => {
+        console.log(e.currentTarget.id);
+        currentStep =
+          e.currentTarget.id === "steps-next"
+            ? Math.min(currentStep + 1, messages.length)
+            : Math.max(currentStep - 1, 1);
+        uiUpdate();
+      };
+
+      uiUpdate();
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", updateStepsByButton);
+      });
+
+      /*
+      //1.  Is active only current step, move with buttons
+      function uiUpdate() {
+        message.textContent = messages[currentStep - 1];
+        document.querySelector(".active")?.classList.remove("active");
+        steps[currentStep - 1].classList.add("active");
+      }
+
+      uiUpdate();
+
+      next.addEventListener("click", () => {
+        if (currentStep < messages.length) {
+          currentStep += 1;
+          uiUpdate();
+        }
+      });
+      previous.addEventListener("click", () => {
+        if (currentStep > 1) {
+          currentStep -= 1;
+          uiUpdate();
+        }
+      });*/
     </script>
   </body>
 </html>
