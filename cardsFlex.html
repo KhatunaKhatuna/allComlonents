@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+      *,
+      *:before,
+      *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      :focus,
+      :active {
+        outline: none;
+      }
+      a:focus,
+      a:active {
+        outline: none;
+      }
+      nav,
+      footer,
+      header,
+      aside {
+        display: block;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        font-size: 100%;
+        line-height: 1;
+        font-size: 14px;
+        -ms-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      input,
+      button,
+      textarea {
+        font-family: inherit;
+      }
+      input::-ms-clear {
+        display: none;
+      }
+      button {
+        cursor: pointer;
+      }
+      button::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+      }
+      a,
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      ul li {
+        list-style: none;
+      }
+      img {
+        vertical-align: top;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: 400;
+      }
+      /* end resset */
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 850px;
+        margin: 0 auto;
+      }
+      .card {
+        background-color: blue;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 250px;
+      }
+
+      /*
+      .card:nth-of-type(even) {
+        border: 5px solid red;
+      }
+      .card:nth-of-type(1) {
+        flex: 1 250px;
+      }
+      .card:nth-of-type(2) {
+        flex: 1 250px;
+      }
+      .card:nth-of-type(3) {
+        flex: 1 250px;
+      }
+      .card:nth-of-type(4) {
+        flex: 1 250px;
+      }
+      .card:nth-of-type(5) {
+        flex: 1 250px;
+      } */
+      .card-image {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+      }
+      .card-content {
+        padding-top: 20px;
+      }
+      .title {
+      }
+      .text {
+        margin-bottom: 20px;
+      }
+      .button {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <img
+          class="card-image"
+          src="https://images.unsplash.com/photo-1711560217845-2333455669a0?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="moon"
+        />
+        <p class="title">moon</p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad.
+        </p>
+        <button class="button">Reade more</button>
+      </div>
+      <div class="card">
+        <img
+          class="card-image"
+          src="https://images.unsplash.com/photo-1713205660475-bef0b48d1830?q=80&w=1826&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="moon"
+        />
+        <p class="title">moon</p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad.
+        </p>
+        <button class="button">Reade more</button>
+      </div>
+      <div class="card">
+        <img
+          class="card-image"
+          src="https://plus.unsplash.com/premium_photo-1712729848228-a5cfd6bf357a?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="moon"
+        />
+        <p class="title">moon</p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad. Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Repudiandae, ad. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Repudiandae, ad.
+        </p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad.
+        </p>
+        <button class="button">Reade more</button>
+      </div>
+      <div class="card">
+        <img
+          class="card-image"
+          src="https://plus.unsplash.com/premium_photo-1712729848228-a5cfd6bf357a?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="moon"
+        />
+        <p class="title">moon</p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad. Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Repudiandae, ad. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Repudiandae, ad.
+        </p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad.
+        </p>
+        <button class="button">Reade more</button>
+      </div>
+      <div class="card">
+        <img
+          class="card-image"
+          src="https://plus.unsplash.com/premium_photo-1712729848228-a5cfd6bf357a?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="moon"
+        />
+        <p class="title">moon</p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad. Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Repudiandae, ad. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Repudiandae, ad.
+        </p>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae,
+          ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Repudiandae, ad.
+        </p>
+        <button class="button">Reade more</button>
+      </div>
+    </div>
+  </body>
+</html>
