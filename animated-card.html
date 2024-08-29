@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+      *,
+      *:before,
+      *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      :focus,
+      :active {
+        outline: none;
+      }
+      a:focus,
+      a:active {
+        outline: none;
+      }
+      nav,
+      footer,
+      header,
+      aside {
+        display: block;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        font-size: 100%;
+        line-height: 1;
+        font-size: 14px;
+        -ms-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      input,
+      button,
+      textarea {
+        font-family: inherit;
+      }
+      input::-ms-clear {
+        display: none;
+      }
+      button {
+        cursor: pointer;
+      }
+      button::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+      }
+      a,
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      ul li {
+        list-style: none;
+      }
+      img {
+        vertical-align: top;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: 400;
+      }
+      /* ------end resset ------*/
+      .sim-racer {
+        background-color: rgb(16, 16, 48);
+        padding: 2rem;
+        border-radius: 20px;
+        overflow: hidden;
+        max-width: 700px;
+        display: grid;
+        grid-template-areas: "title" "text" "image";
+        gap: 1rem;
+        position: relative;
+        /* height: 400px; */
+      }
+      .sim-racer > * {
+        margin: 0;
+      }
+      .sim-racer h1 {
+        grid-area: title;
+        /*  */
+        font-size: 72px;
+        color: greenyellow;
+        text-transform: uppercase;
+        line-height: 80px;
+        /* z-index: 1; */
+      }
+      /* strong {
+        font-weight: 900;
+
+      } */
+      .sim-racer p {
+        grid-area: text;
+        color: white;
+        font-size: 20px;
+      }
+      .sim-racer img {
+        grid-area: image;
+        display: block;
+        max-width: 100%;
+        /* margin-bottom: -2rem; */
+        margin-block-end: -2rem;
+        /* box-shadow: 0 0 1rem red; */
+        filter: drop-shadow(0 0 1rem red);
+        height: 250px;
+      }
+      .sim-racer svg {
+        fill: rgb(255, 252, 252);
+        position: absolute;
+        opacity: 0.125;
+
+        grid-column: title-start;
+        grid-row: title-end;
+
+        place-self: start;
+        top: 2rem;
+        left: -2rem;
+      }
+      @media (min-width: 540px) {
+        .sim-racer {
+          grid-template-areas: revert;
+          grid-template-rows: [title-start] auto [image-start] 50px [title-end text-start] auto [image-end text-end];
+          grid-template-columns: [title-start text-start] 1fr [text-end image-start] 1fr [title-end image-end];
+          animation: carsGoZoom 5s alternate infinite;
+        }
+      }
+
+      @keyframes carsGoZoom {
+        /* can animaet colums too */
+        to {
+          grid-template-rows: [title-start] auto [image-start] 100px [title-end text-start] auto [image-end text-end];
+        }
+      }
+      p {
+        margin-top: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corporis
+      quisquam nobis nisi itaque labore autem eos ab illo laudantium
+      praesentium, consequatur id reprehenderit dignissimos error. Reprehenderit
+      inventore porro neque cumque, voluptatem soluta enim quaerat quam omnis
+      deserunt. Aliquid, necessitatibus. Labore, odio? Laborum facilis
+      accusantium voluptas deleniti, reprehenderit veniam magnam dicta ullam
+      dolore aliquam sequi explicabo esse eum consectetur libero harum,
+      necessitatibus error laboriosam ea sapiente voluptatibus. Eaque alias
+      distinctio voluptatibus illo numquam harum repellendus rerum. Voluptas
+      explicabo pariatur numquam voluptate delectus corrupti sunt qui,
+      exercitationem cupiditate quos quo incidunt ipsa voluptatem, dolorum fuga
+      quasi voluptatum, assumenda quia itaque veniam ipsum. Deleniti quo neque
+      cupiditate! Quidem dolore aliquid nesciunt nobis sunt nam exercitationem
+      reprehenderit magni placeat dolor fuga doloremque ipsam adipisci quam
+      molestiae quaerat earum delectus, consequuntur aut consequatur quos,
+      cumque a debitis in? Veritatis dolorum ducimus aspernatur maiores enim
+      consectetur odit voluptatem ab necessitatibus ea labore laboriosam error,
+      quisquam ad recusandae aliquam porro cupiditate magnam, voluptatibus
+      dignissimos itaque? Beatae tempore voluptates sint provident maiores hic
+      harum consequatur. Laboriosam voluptatum explicabo ut assumenda deleniti
+      dolor maxime a vel maiores suscipit quas nemo ullam, illo impedit neque
+      cumque quidem molestiae blanditiis qui omnis corporis provident quis
+      debitis? Animi non dolore laboriosam obcaecati fugiat autem aliquam
+      officia eos, ullam totam placeat dolorum mollitia fuga incidunt iusto sunt
+      maiores voluptatem minus illum, blanditiis tempore sed. Aut illum sint
+      cupiditate. Labore enim doloremque, dolores saepe amet illo tempore
+      mollitia! Tempora ipsum, consectetur quia accusamus expedita aut fugit
+      molestias! Laudantium cupiditate quam reiciendis impedit libero nostrum,
+      facilis labore qui, fuga nobis quidem voluptas mollitia corporis earum
+      veritatis? Pariatur fuga adipisci quasi natus autem rerum reprehenderit
+      consequuntur quaerat quo commodi sunt optio ipsam aut quisquam ab, iste
+      modi consequatur ex necessitatibus provident in porro iure. Laborum quae
+      veritatis ab sed repellendus pariatur soluta eveniet tempora libero.
+    </p>
+    <div class="sim-racer">
+      <svg
+        fill="#000000"
+        height="200px"
+        width="200px"
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 512 512"
+        xml:space="preserve"
+      >
+        <g>
+          <g>
+            <path
+              d="M477.449,239.828c-22.052-21.892-51.311-33.948-82.388-33.948h-21.371l-14.374-43.121
+			c-11.388-34.163-43.234-57.117-79.245-57.117H226.12c-5.461,0-10.91,0.214-16.341,0.615c-0.088,0.008-0.177,0.011-0.265,0.021
+			c-46.782,3.508-92.054,21.728-128.999,52.211c-40.383,33.32-67.069,78.387-75.645,127.464c-0.025,0.116-0.041,0.235-0.063,0.352
+			c-0.334,1.93-0.649,3.865-0.927,5.807l-3.375,23.626c-2.056,14.391,2.227,28.943,11.753,39.927
+			c9.525,10.982,23.324,17.281,37.862,17.281h30.394c6.896,19.445,25.466,33.413,47.246,33.413c21.78,0,40.349-13.969,47.246-33.414
+			h139.398c6.896,19.445,25.466,33.414,47.246,33.414c21.779,0,40.349-13.969,47.246-33.414h52.993
+			c13.363,0,25.923-5.241,35.367-14.758c9.612-9.686,14.848-22.573,14.743-36.282C511.759,290.856,499.49,261.709,477.449,239.828z
+			 M127.759,372.942c-9.212,0-16.706-7.495-16.706-16.706c0-9.212,7.495-16.706,16.706-16.706c9.212,0,16.706,7.495,16.706,16.706
+			C144.466,365.448,136.971,372.942,127.759,372.942z M194.585,205.878H79.597c29.022-33.106,69.852-56.583,114.988-64.175V205.878z
+			 M261.41,306.117h-33.413c-9.226,0-16.706-7.48-16.706-16.706s7.48-16.706,16.706-16.706h33.413
+			c9.226,0,16.706,7.48,16.706,16.706S270.637,306.117,261.41,306.117z M227.998,205.878v-66.826h52.073
+			c21.606,0,40.715,13.772,47.546,34.27l10.852,32.555H227.998z M361.649,372.942c-9.212,0-16.706-7.495-16.706-16.706
+			c0-9.212,7.494-16.706,16.706-16.706c9.212,0,16.706,7.495,16.706,16.706C378.355,365.448,370.862,372.942,361.649,372.942z"
+            />
+          </g>
+        </g>
+      </svg>
+      <h1>step up your sim <strong>racing skills</strong></h1>
+      <p>
+        start leading the pack with our setups and get personalised training
+        sessions with our
+      </p>
+      <img src="images/Esports-gamer-withoutbackground.png" alt="" />
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum corrupti,
+      sunt tenetur similique eos fugit ratione! Consequuntur mollitia labore
+      iste soluta tenetur id exercitationem deserunt, commodi quo voluptatum
+      cupiditate assumenda voluptatibus beatae nemo veniam cum hic at! Ab
+      laborum consequatur, est commodi architecto eligendi magni ad vitae itaque
+      error impedit veritatis dolorum deserunt iste soluta, accusantium rerum
+      non doloribus quae ipsam perferendis. Dignissimos, nemo incidunt est
+      adipisci culpa repudiandae maxime eveniet sequi voluptatibus, facilis
+      explicabo quam veniam quasi optio nihil at magni quae cumque minima!
+      Obcaecati facere explicabo unde dolores sint dolorem similique ratione
+      exercitationem mollitia cum quos qui, nisi quas culpa quis facilis!
+      Debitis eligendi necessitatibus officia error, quasi saepe vitae
+      architecto tempora nesciunt, quod cum blanditiis autem. Quam placeat
+      tenetur voluptates quidem minus, ab commodi cumque! Fugit laboriosam
+      doloribus distinctio placeat, quos optio consequuntur earum labore magni
+      dolore, recusandae nemo officiis minima eos sunt fuga deleniti repellendus
+      cumque. Laborum ad iste quidem nam esse! Fugiat cumque sunt adipisci,
+      officiis nobis dolores doloremque ea ratione laudantium non atque officia
+      minima asperiores nihil qui error repellat exercitationem sit sapiente
+      commodi quas nesciunt fuga. Doloremque voluptatibus consectetur voluptates
+      quis provident at dolor natus reprehenderit sed reiciendis dolore, fugiat
+      pariatur, error magni.
+    </p>
+  </body>
+</html>
